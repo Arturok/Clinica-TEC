@@ -13,13 +13,13 @@ namespace Health_Tec.Models
         public string Correo { get; set; }
         public string FechaNacimiento { get; set; }
         public string TipoSangre { get; set; }
-        public ICollection<Clinica> Clinicas { get; set; }
         public string Estado { get; set; }
-        public Clinica Clinica { get; set; }
-        public string ClinicaId { get; set; }
+        public ICollection<Clinica> Clinicas { get; set; }
+        public Usuario Login { get; set; }
 
         public Paciente()
         {
+            Telefonos = new Collection<int>();
             Clinicas = new Collection<Clinica>();
         }
 

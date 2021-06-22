@@ -10,6 +10,7 @@ namespace Health_Tec.Models
         public bool Estado { get; set; }
         public Clinica Clinica { get; set; }
         public string ClinicaId { get; set; }
+        public Usuario Login { get; set; }
 
     }
 }
