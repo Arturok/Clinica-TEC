@@ -47,7 +47,25 @@
                             </tbody>
                         </table>
                     </td>
-                    <td>{{ clinica.pacientes }}</td>
+                    <td>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Cédula</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let paciente of clinica.pacientes">
+                                    <td>{{ paciente.id }}</td>
+                                    <td>{{ paciente.Nombre }} {{ paciente.apellido1 }} {{ paciente.apellido2 }}</td>
+                                    <td>{{ paciente.estado }}</td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
                 </tr>
             </tbody>
         </table>

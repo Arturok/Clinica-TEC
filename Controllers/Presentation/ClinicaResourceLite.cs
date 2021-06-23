@@ -8,7 +8,7 @@ namespace Health_Tec.Controllers.Presentation
         public string Canton { get; set; }
         public string Distrito { get; set; }
         public string Otros { get; set; }
-        public int Teléfono { get; set; }        
+        public int Telefono { get; set; }        
         public string Correo { get; set; }
         public string SitioWeb { get; set; }
         public string DiaInicio { get; set; }

@@ -1,0 +1,65 @@
+<p>Información Médicos</p>
+
+
+<div class="row">
+    <div class="col">
+        <table id="medicos">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Cédula</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Especialidad</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Clínicas</th>
+                    <th scope="col">Pacientes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let medico of medicos">
+                    <td>{{ medico.id }}</td>
+                    <td>{{ medico.cedula }}</td>
+                    <td>{{ medico.nombre }} {{ medico.apellido1 }} {{ medico.apellido2 }}</td>
+                    <td>{{ medico.especialidad }}</td>
+                    <td>{{ medico.estado ? "activo" : "inactivo" }}</td>
+                    <td>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Dirección</th>
+                                    <th scope="col">Teléfono</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let clinica of medico.clinicas">
+                                    <td>{{ clinica.nombre }}</td>
+                                    <td>{{ clinica.provincia }}, {{ clinica.canton }}, {{ clinica.distrito }}</td>
+                                    <td>{{ clinica.telefono }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Cédula</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let paciente of medico.pacientes">
+                                    <td>{{ paciente.id }}</td>
+                                    <td>{{ paciente.Nombre }} {{ paciente.apellido1 }} {{ paciente.apellido2 }}</td>
+                                    <td>{{ paciente.estado }}</td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</div>

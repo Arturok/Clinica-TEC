@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ClinicasComponent } from './clinicas/clinicas.component';
+import { MedicosComponent } from './medicos/medicos.component';
+import { PacientesComponent } from './pacientes/pacientes.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ClinicasComponent } from './clinicas/clinicas.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    ClinicasComponent
+    ClinicasComponent,
+    MedicosComponent,
+    PacientesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -29,6 +33,8 @@ import { ClinicasComponent } from './clinicas/clinicas.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'clinicas', component: ClinicasComponent },
+      { path: 'medicos', component: MedicosComponent },
+      { path: 'pacientes', component: PacientesComponent },
     ])
   ],
   providers: [],
