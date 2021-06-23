@@ -10,5 +10,9 @@ namespace Health_Tec.Persistence
             
         }
         public DbSet<Clinica> Clinicas { get; set; }
+        public DbSet<Medico> Medicos { get; set; }
+        public DbSet<Paciente> Pacientes { get; set; }
+        public DbSet<Estado> Estados { get; set; }
+
     }
 }

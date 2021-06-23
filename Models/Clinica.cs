@@ -6,6 +6,7 @@ namespace Health_Tec.Models
 {
     public class Clinica
     {
+        [StringLength(50)]
         public string Id { get; set; }
         [Required][StringLength(50)]
         public string Nombre { get; set; }
@@ -18,7 +19,7 @@ namespace Health_Tec.Models
         [Required][StringLength(50)]
         public string Otros { get; set; }
         [Required]
-        public int Teléfono { get; set; }
+        public int Telefono { get; set; }
         [Required][StringLength(50)]
         public string Correo { get; set; }
         [Required][StringLength(50)]

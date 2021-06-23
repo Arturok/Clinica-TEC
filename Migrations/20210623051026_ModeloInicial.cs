@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Health_Tec.Migrations
 {
-    public partial class ModeloInicialAndAnnotations : Migration
+    public partial class ModeloInicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,13 +11,13 @@ namespace Health_Tec.Migrations
                 name: "Clinicas",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Nombre = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Provincia = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Canton = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Distrito = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Otros = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Teléfono = table.Column<int>(type: "int", nullable: false),
+                    Telefono = table.Column<int>(type: "int", nullable: false),
                     Correo = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     SitioWeb = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     DiaInicio = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
@@ -31,7 +31,7 @@ namespace Health_Tec.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Estado",
+                name: "Estados",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -40,14 +40,14 @@ namespace Health_Tec.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Estado", x => x.Id);
+                    table.PrimaryKey("PK_Estados", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Medico",
+                name: "Medicos",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Cedula = table.Column<int>(type: "int", nullable: false),
                     Nombre = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Apellido1 = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
@@ -57,11 +57,11 @@ namespace Health_Tec.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Medico", x => x.Id);
+                    table.PrimaryKey("PK_Medicos", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Paciente",
+                name: "Pacientes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -80,11 +80,11 @@ namespace Health_Tec.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Paciente", x => x.Id);
+                    table.PrimaryKey("PK_Pacientes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Paciente_Estado_EstadoId",
+                        name: "FK_Pacientes_Estados_EstadoId",
                         column: x => x.EstadoId,
-                        principalTable: "Estado",
+                        principalTable: "Estados",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -93,8 +93,8 @@ namespace Health_Tec.Migrations
                 name: "ClinicaMedico",
                 columns: table => new
                 {
-                    ClinicasId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    MedicosId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    ClinicasId = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    MedicosId = table.Column<string>(type: "nvarchar(50)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -106,9 +106,9 @@ namespace Health_Tec.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ClinicaMedico_Medico_MedicosId",
+                        name: "FK_ClinicaMedico_Medicos_MedicosId",
                         column: x => x.MedicosId,
-                        principalTable: "Medico",
+                        principalTable: "Medicos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -117,7 +117,7 @@ namespace Health_Tec.Migrations
                 name: "ClinicaPaciente",
                 columns: table => new
                 {
-                    ClinicasId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ClinicasId = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     PacientesId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -130,9 +130,9 @@ namespace Health_Tec.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ClinicaPaciente_Paciente_PacientesId",
+                        name: "FK_ClinicaPaciente_Pacientes_PacientesId",
                         column: x => x.PacientesId,
-                        principalTable: "Paciente",
+                        principalTable: "Pacientes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -141,22 +141,22 @@ namespace Health_Tec.Migrations
                 name: "MedicoPaciente",
                 columns: table => new
                 {
-                    MedicosId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    MedicosId = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     PacientesId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MedicoPaciente", x => new { x.MedicosId, x.PacientesId });
                     table.ForeignKey(
-                        name: "FK_MedicoPaciente_Medico_MedicosId",
+                        name: "FK_MedicoPaciente_Medicos_MedicosId",
                         column: x => x.MedicosId,
-                        principalTable: "Medico",
+                        principalTable: "Medicos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_MedicoPaciente_Paciente_PacientesId",
+                        name: "FK_MedicoPaciente_Pacientes_PacientesId",
                         column: x => x.PacientesId,
-                        principalTable: "Paciente",
+                        principalTable: "Pacientes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -174,9 +174,9 @@ namespace Health_Tec.Migrations
                 {
                     table.PrimaryKey("PK_Telefono", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Telefono_Paciente_PacienteId",
+                        name: "FK_Telefono_Pacientes_PacienteId",
                         column: x => x.PacienteId,
-                        principalTable: "Paciente",
+                        principalTable: "Pacientes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -197,8 +197,8 @@ namespace Health_Tec.Migrations
                 column: "PacientesId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Paciente_EstadoId",
-                table: "Paciente",
+                name: "IX_Pacientes_EstadoId",
+                table: "Pacientes",
                 column: "EstadoId");
 
             migrationBuilder.CreateIndex(
@@ -225,13 +225,13 @@ namespace Health_Tec.Migrations
                 name: "Clinicas");
 
             migrationBuilder.DropTable(
-                name: "Medico");
+                name: "Medicos");
 
             migrationBuilder.DropTable(
-                name: "Paciente");
+                name: "Pacientes");
 
             migrationBuilder.DropTable(
-                name: "Estado");
+                name: "Estados");
         }
     }
 }

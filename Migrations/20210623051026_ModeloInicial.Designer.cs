@@ -4,14 +4,16 @@ using Health_Tec.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Health_Tec.Migrations
 {
     [DbContext(typeof(HealthTecDbContext))]
-    partial class HealthTecDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210623051026_ModeloInicial")]
+    partial class ModeloInicial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

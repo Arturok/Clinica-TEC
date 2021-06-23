@@ -6,6 +6,7 @@ namespace Health_Tec.Models
 {
     public class Medico
     {
+        [StringLength(50)]
         public string Id { get; set; }
         [Required]
         public int Cedula { get; set; }

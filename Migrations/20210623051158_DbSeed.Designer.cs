@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Health_Tec.Migrations
 {
     [DbContext(typeof(HealthTecDbContext))]
-    [Migration("20210623004822_ModeloInicialAndAnnotations")]
-    partial class ModeloInicialAndAnnotations
+    [Migration("20210623051158_DbSeed")]
+    partial class DbSeed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,10 +24,10 @@ namespace Health_Tec.Migrations
             modelBuilder.Entity("ClinicaMedico", b =>
                 {
                     b.Property<string>("ClinicasId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("MedicosId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("ClinicasId", "MedicosId");
 
@@ -39,7 +39,7 @@ namespace Health_Tec.Migrations
             modelBuilder.Entity("ClinicaPaciente", b =>
                 {
                     b.Property<string>("ClinicasId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("PacientesId")
                         .HasColumnType("int");
@@ -54,7 +54,8 @@ namespace Health_Tec.Migrations
             modelBuilder.Entity("Health_Tec.Models.Clinica", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Canton")
                         .IsRequired()
@@ -111,7 +112,7 @@ namespace Health_Tec.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("Teléfono")
+                    b.Property<int>("Telefono")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -133,13 +134,14 @@ namespace Health_Tec.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Estado");
+                    b.ToTable("Estados");
                 });
 
             modelBuilder.Entity("Health_Tec.Models.Medico", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Apellido1")
                         .IsRequired()
@@ -170,7 +172,7 @@ namespace Health_Tec.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Medico");
+                    b.ToTable("Medicos");
                 });
 
             modelBuilder.Entity("Health_Tec.Models.Paciente", b =>
@@ -234,7 +236,7 @@ namespace Health_Tec.Migrations
 
                     b.HasIndex("EstadoId");
 
-                    b.ToTable("Paciente");
+                    b.ToTable("Pacientes");
                 });
 
             modelBuilder.Entity("Health_Tec.Models.Telefono", b =>
@@ -260,7 +262,7 @@ namespace Health_Tec.Migrations
             modelBuilder.Entity("MedicoPaciente", b =>
                 {
                     b.Property<string>("MedicosId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("PacientesId")
                         .HasColumnType("int");
