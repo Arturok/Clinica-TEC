@@ -1,1 +1,54 @@
-<p>clinicas works!</p>
+<p>Información Clínicas</p>
+
+<div class="row">
+    <div class="col">
+        <table id="clinica">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Sitio web</th>
+                    <th scope="col">Horario</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Medicos</th>
+                    <th scope="col">Pacientes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let clinica of clinicas">
+                    <td>{{ clinica.id }}</td>
+                    <td>{{ clinica.nombre }}</td>
+                    <td>{{ clinica.provincia }}, {{ clinica.canton }}, {{ clinica.distrito }}, {{ clinica.otros }}</td>
+                    <td>{{ clinica.sitioWeb }}</td>
+                    <td>De {{ clinica.diaInicio }} a {{ clinica.diaFinal }} de {{ clinica.horaInicio }} a {{ clinica.horaCierre }}</td>
+                    <td>{{ clinica.telefono }}</td>
+                    <td>{{ clinica.correo }}</td>
+                    <td>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Cedula</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Especialidad</th>
+                                    <th scope="col">Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let medico of clinica.medicos">
+                                    <td>{{ medico.id }}</td>
+                                    <td>{{ medico.cedula }}</td>
+                                    <td>{{ medico.Nombre }} {{ medico.apellido1 }} {{ medico.apellido2 }}</td>
+                                    <td>{{ medico.especialidad }}</td>
+                                    <td>{{ medico.estado ? "activo" : "inactivo" }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td>{{ clinica.pacientes }}</td>
+                </tr>
+            </tbody>
+        </table>
+</div>

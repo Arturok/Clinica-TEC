@@ -28,6 +28,7 @@ import { ClinicasComponent } from './clinicas/clinicas.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'clinicas', component: ClinicasComponent },
     ])
   ],
   providers: [],
