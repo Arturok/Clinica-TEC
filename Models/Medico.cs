@@ -1,16 +1,31 @@
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+
 namespace Health_Tec.Models
 {
     public class Medico
     {
         public string Id { get; set; }
+        [Required]
         public int Cedula { get; set; }
+        [Required][StringLength(50)]
         public string Nombre { get; set; }
-        public string Apellidos { get; set; }
+        [Required][StringLength(50)]
+        public string Apellido1 { get; set; }
+        [Required][StringLength(50)]
+        public string Apellido2 { get; set; }
+        [Required][StringLength(50)]
         public string Especialidad { get; set; }
+        [Required][StringLength(50)]
         public bool Estado { get; set; }
-        public Clinica Clinica { get; set; }
-        public string ClinicaId { get; set; }
-        public Usuario Login { get; set; }
-
+        public ICollection<Clinica> Clinicas { get; set; }
+        public ICollection<Paciente> Pacientes { get; set; }
+        public Medico()
+        {
+            Clinicas = new Collection<Clinica>();
+            Pacientes = new Collection<Paciente>();
+        }
     }
+    
 }
