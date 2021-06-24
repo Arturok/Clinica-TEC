@@ -12,6 +12,9 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ClinicasComponent } from './clinicas/clinicas.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { PacientesComponent } from './pacientes/pacientes.component';
+import { CrearClinicaComponent } from './crear-clinica/crear-clinica.component';
+import { CrearMedicoComponent } from './crear-medico/crear-medico.component';
+import { CrearPacienteComponent } from './crear-paciente/crear-paciente.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { PacientesComponent } from './pacientes/pacientes.component';
     FetchDataComponent,
     ClinicasComponent,
     MedicosComponent,
-    PacientesComponent
+    PacientesComponent,
+    CrearClinicaComponent,
+    CrearMedicoComponent,
+    CrearPacienteComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -35,6 +41,9 @@ import { PacientesComponent } from './pacientes/pacientes.component';
       { path: 'clinicas', component: ClinicasComponent },
       { path: 'medicos', component: MedicosComponent },
       { path: 'pacientes', component: PacientesComponent },
+      { path: 'crear-clinica', component: CrearClinicaComponent },
+      { path: 'crear-medico', component: CrearMedicoComponent },
+      { path: 'crear-paciente', component: CrearPacienteComponent },
     ])
   ],
   providers: [],

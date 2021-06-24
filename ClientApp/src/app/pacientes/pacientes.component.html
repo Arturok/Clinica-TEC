@@ -1,4 +1,6 @@
-<p>Información Pacientes</p>
+<div class="imgcontainer">
+    <h3 style="text-align: center;"><span style="color: #339966;">Información Pacientes</span></h3>
+</div>
 
 <div class="row">
     <div class="col">
@@ -12,17 +14,21 @@
                     <th scope="col">F.Nacimiento</th>
                     <th scope="col">Tipo Sangre</th>
                     <th scope="col">Estado</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Médicos</th>
+                    <th scope="col">Clínicas</th>
+                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let paciente of pacientes">
                     <td>{{ paciente.id }}</td>
-                    <td>{{ paciente.Nombre }} {{ paciente.apellido1 }} {{ paciente.apellido2 }}</td>
+                    <td>{{ paciente.nombre }} {{ paciente.apellido1 }} {{ paciente.apellido2 }}</td>
                     <td>{{ paciente.provincia }}, {{ paciente.canton }}, {{ paciente.distrito }}, {{ paciente.otros }}</td>
                     <td>{{ paciente.correo }}</td>
-                    <td>De {{ paciente.fechaNacimiento }}</td>
+                    <td>{{ paciente.fechaNacimiento }}</td>
                     <td>{{ paciente.tipoSangre }}</td>
-                    <td>{{ paciente.estado }}</td>
+                    <td>{{ paciente.estado.nombre }}</td>
                     <td>
                         <table>
                             <thead>
@@ -52,7 +58,7 @@
                                 <tr *ngFor="let medico of paciente.medicos">
                                     <td>{{ medico.id }}</td>
                                     <td>{{ medico.cedula }}</td>
-                                    <td>{{ medico.Nombre }} {{ medico.apellido1 }} {{ medico.apellido2 }}</td>
+                                    <td>{{ medico.nombre }} {{ medico.apellido1 }} {{ medico.apellido2 }}</td>
                                     <td>{{ medico.especialidad }}</td>
                                     <td>{{ medico.estado ? "activo" : "inactivo" }}</td>
                                 </tr>
@@ -76,6 +82,10 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </td>
+                    <td>
+                        <button type="button">Editar</button>
+                        <button type="button">Eliminar</button>
                     </td>
                 </tr>
             </tbody>

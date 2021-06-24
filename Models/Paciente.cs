@@ -7,7 +7,8 @@ namespace Health_Tec.Models
 {
     public class Paciente
     {
-        public int Id { get; set; }
+        [StringLength(50)]
+        public string Id { get; set; }
         [Required][StringLength(50)]
         public string Nombre { get; set; }
         [Required][StringLength(50)]
@@ -35,6 +36,7 @@ namespace Health_Tec.Models
         public ICollection<Medico> Medicos { get; set; }
         public Paciente()
         {
+            Estado = new Estado();
             Telefonos = new Collection<Telefono>();
             Clinicas = new Collection<Clinica>();
             Medicos = new Collection<Medico>();

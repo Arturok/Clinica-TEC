@@ -23,7 +23,7 @@ namespace Health_Tec.Controllers
         [HttpGet]
         public async Task<IEnumerable<PacienteResource>> GetPacientes()
         {
-            var pacientes = await context.Pacientes.Include(t => t.Telefonos).Include(c => c.Clinicas).Include(m => m.Medicos).ToListAsync();
+            var pacientes = await context.Pacientes.Include(t => t.Telefonos).Include(c => c.Clinicas).Include(m => m.Medicos).Include(e => e.Estado).ToListAsync();
             return mapper.Map<List<Paciente>, List<PacienteResource>>(pacientes);
         }
     }

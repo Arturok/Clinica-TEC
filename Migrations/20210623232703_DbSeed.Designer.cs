@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Health_Tec.Migrations
 {
     [DbContext(typeof(HealthTecDbContext))]
-    [Migration("20210623051158_DbSeed")]
+    [Migration("20210623232703_DbSeed")]
     partial class DbSeed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,8 +41,8 @@ namespace Health_Tec.Migrations
                     b.Property<string>("ClinicasId")
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("PacientesId")
-                        .HasColumnType("int");
+                    b.Property<string>("PacientesId")
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("ClinicasId", "PacientesId");
 
@@ -177,10 +177,9 @@ namespace Health_Tec.Migrations
 
             modelBuilder.Entity("Health_Tec.Models.Paciente", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Apellido1")
                         .IsRequired()
@@ -252,9 +251,12 @@ namespace Health_Tec.Migrations
                     b.Property<int>("PacienteId")
                         .HasColumnType("int");
 
+                    b.Property<string>("PacienteId1")
+                        .HasColumnType("nvarchar(50)");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("PacienteId");
+                    b.HasIndex("PacienteId1");
 
                     b.ToTable("Telefono");
                 });
@@ -264,8 +266,8 @@ namespace Health_Tec.Migrations
                     b.Property<string>("MedicosId")
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("PacientesId")
-                        .HasColumnType("int");
+                    b.Property<string>("PacientesId")
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("MedicosId", "PacientesId");
 
@@ -317,9 +319,7 @@ namespace Health_Tec.Migrations
                 {
                     b.HasOne("Health_Tec.Models.Paciente", "Paciente")
                         .WithMany("Telefonos")
-                        .HasForeignKey("PacienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PacienteId1");
 
                     b.Navigation("Paciente");
                 });
