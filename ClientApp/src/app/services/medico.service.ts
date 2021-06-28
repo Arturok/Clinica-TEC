@@ -16,4 +16,7 @@ export class MedicoService {
   createMedico(medico: Object): Observable<Object> {
     return this.httpClient.post('/api/medicos', medico);
   }
+  deleteMedico(id: string) {
+    return this.httpClient.delete('/api/medicos/'+id);
+  }
 }

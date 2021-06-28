@@ -17,5 +17,13 @@ export class PacientesComponent implements OnInit {
       console.log("Pacientes: ", this.pacientes);
     })
   }
+  delete(id: string) {
+    console.log("ID: ", id);
+    this.pacienteServise.deletePaciente(id).subscribe(
+      (data) => console.log(data),
+      (error) => console.log(error)
+    );
+    window.location.reload();
+  }
 
 }

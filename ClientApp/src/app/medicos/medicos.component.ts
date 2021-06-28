@@ -17,5 +17,13 @@ export class MedicosComponent implements OnInit {
       console.log("Medicos: ", this.medicos);
     });
   }
+  delete(id: string) {
+    console.log("ID: ", id);
+    this.medicoService.deleteMedico(id).subscribe(
+      (data) => console.log(data),
+      (error) => console.log(error)
+    );
+    window.location.reload();
+  }
 
 }

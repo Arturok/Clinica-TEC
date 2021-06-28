@@ -15,4 +15,7 @@ export class PacienteService {
   createPaciente(paciente: Object): Observable<Object> {
     return this.httpClient.post('/api/pacientes', paciente);
   }
+  deletePaciente(id: string) {
+    return this.httpClient.delete('/api/pacientes/'+id);
+  }
 }
