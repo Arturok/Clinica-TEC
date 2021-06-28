@@ -29,14 +29,14 @@ namespace Health_Tec.Models
         public DateTime FechaNacimiento { get; set; }
         [Required][StringLength(50)]
         public string TipoSangre { get; set; }
-        [Required][StringLength(50)]
-        public Estado Estado { get; set; }
+        [Required]
+        public int EstadoId { get; set; }
+        public virtual Estado Estado { get; set; }
         public ICollection<Telefono> Telefonos { get; set; }
         public ICollection<Clinica> Clinicas { get; set; }
         public ICollection<Medico> Medicos { get; set; }
         public Paciente()
         {
-            Estado = new Estado();
             Telefonos = new Collection<Telefono>();
             Clinicas = new Collection<Clinica>();
             Medicos = new Collection<Medico>();

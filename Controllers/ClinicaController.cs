@@ -38,5 +38,34 @@ namespace Health_Tec.Controllers
 
             return Ok(await context.SaveChangesAsync());
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetClinica(string id)
+        {                
+            var clinica = await context.Clinicas.FindAsync(id);
+
+            if (clinica == null)
+                return NotFound();
+            
+
+            return Ok(clinica);
+        }
+
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteClinica(string id)
+        {
+            var clinica = await context.Clinicas.FindAsync(id);
+
+            if (clinica == null)
+                return NotFound();
+
+            context.Remove(clinica);
+
+            await context.SaveChangesAsync();
+
+            return Ok(id);
+        }
+
     }
 }

@@ -18,4 +18,13 @@ export class ClinicasComponent implements OnInit {
       console.log("Clinicas: ", this.clinicas);
     });
   }
+
+  delete(id: string) {
+    console.log("ID: ", id);
+    this.clinicaService.deleteClinica(id).subscribe(
+      (data) => console.log(data),
+      (error) => console.log(error)
+    );
+    window.location.reload();
+  }
 }

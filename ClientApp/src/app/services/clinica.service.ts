@@ -17,4 +17,8 @@ export class ClinicaService {
   createClinica(clinica: Object): Observable<Object> {
     return this.httpClient.post('/api/clinicas', clinica);
   }
+
+  deleteClinica(id: string) {
+    return this.httpClient.delete('/api/clinicas/'+id);
+  }
 }

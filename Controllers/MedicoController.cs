@@ -38,5 +38,19 @@ namespace Health_Tec.Controllers
 
             return Ok(await context.SaveChangesAsync());
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteMedico(string id)
+        {
+            var medico = await context.Medicos.FindAsync(id);
+
+            if (medico == null)
+                return NotFound();
+
+            context.Remove(medico);
+
+            await context.SaveChangesAsync();
+
+            return Ok(id);
+        }
     }
 }

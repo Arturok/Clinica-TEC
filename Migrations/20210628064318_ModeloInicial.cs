@@ -75,7 +75,7 @@ namespace Health_Tec.Migrations
                     Correo = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     FechaNacimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TipoSangre = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    EstadoId = table.Column<int>(type: "int", nullable: true)
+                    EstadoId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -85,7 +85,7 @@ namespace Health_Tec.Migrations
                         column: x => x.EstadoId,
                         principalTable: "Estados",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

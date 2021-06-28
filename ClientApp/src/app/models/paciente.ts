@@ -1,3 +1,4 @@
+import { Estado } from './estado';
 export class Paciente {
     id: string;
     nombre: string;
@@ -10,6 +11,5 @@ export class Paciente {
     correo: string;
     fechaNacimiento: Date;
     tipoSangre: string;
-    diaFinal: string;
-    estado: string;
+    estadoId: number;
 }
