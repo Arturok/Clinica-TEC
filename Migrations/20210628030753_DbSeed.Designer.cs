@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Health_Tec.Migrations
 {
     [DbContext(typeof(HealthTecDbContext))]
-    [Migration("20210628021939_ModeloInicial")]
-    partial class ModeloInicial
+    [Migration("20210628030753_DbSeed")]
+    partial class DbSeed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -162,7 +162,6 @@ namespace Health_Tec.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<bool>("Estado")
-                        .HasMaxLength(50)
                         .HasColumnType("bit");
 
                     b.Property<string>("Nombre")

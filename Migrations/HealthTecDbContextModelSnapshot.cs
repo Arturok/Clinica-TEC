@@ -160,7 +160,6 @@ namespace Health_Tec.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<bool>("Estado")
-                        .HasMaxLength(50)
                         .HasColumnType("bit");
 
                     b.Property<string>("Nombre")

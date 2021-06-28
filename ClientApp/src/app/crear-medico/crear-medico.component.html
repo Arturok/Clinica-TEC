@@ -1,28 +1,27 @@
-<form action="action_page.php" method="post">
-    <div class="imgcontainer">
-      <h3 style="text-align: center;"><span style="color: #339966;">Editar Médico</span></h3>
-    </div>
-  
-    <div class="container" style="width: 50%; float:left">
+<div class="imgcontainer">
+  <h3 style="text-align: center;"><span style="color: #339966;">Editar Médico</span></h3>
+</div>
+<form (ngSubmit)="onSubmit()">  
+    <div class="form-group container" style="width: 50%; float:left">
         <label for="id">Identificador:</label><br>
-        <input type="text" id="id" name="id"><br>
+        <input type="text" id="id" name="id" class="form-control" required [(ngModel)]="medico.id">
         <label for="cedula">Cédula:</label><br>
-        <input type="text" id="cedula" name="cedula"><br>
+        <input type="number" id="cedula" name="cedula" class="form-control" required [(ngModel)]="medico.cedula">
         <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre">   
+        <input type="text" id="nombre" name="nombre" class="form-control" required [(ngModel)]="medico.nombre">   
         <label for="apellido1">Primer apellido:</label><br>
-        <input type="text" id="apellido1" name="apellido1">  
+        <input type="text" id="apellido1" name="apellido1" class="form-control" required [(ngModel)]="medico.apellido1">  
     </div>
     <div class="container" style="width: 50%; float:left"> 
         <label for="apellido2">Segundo Apellido:</label><br>
-        <input type="text" id="apellido2" name="apellido2">  
+        <input type="text" id="apellido2" name="apellido2" class="form-control" required [(ngModel)]="medico.apellido2">  
         <label for="especialidad">Especialidad:</label><br>
-        <input type="text" id="especialidad" name="especialidad">  
+        <input type="text" id="especialidad" name="especialidad" class="form-control" required [(ngModel)]="medico.especialidad">  
         <label for="estado">Estado:</label><br>
-        <input type="radio" id="Publico" name="estado" value=1 checked="checked">
+        <input type="radio" id="Publico" name="estado" [value]="true" checked="checked" class="form-control" required [(ngModel)]="medico.estado">
         <label for="html">Activo</label><br>
-        <input type="radio" id="Administrador" name="estado" value=0>
+        <input type="radio" id="Administrador" name="estado" [value]="false"  class="form-control" required [(ngModel)]="medico.estado">
         <label for="css">Inactivo</label><br> 
-      <button type="submit">Guardar</button>
+      <button id="submit" type="submit" class="btn btn-success">Guardar</button>
     </div>
-  </form>
+</form>

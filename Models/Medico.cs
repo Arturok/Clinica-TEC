@@ -18,7 +18,7 @@ namespace Health_Tec.Models
         public string Apellido2 { get; set; }
         [Required][StringLength(50)]
         public string Especialidad { get; set; }
-        [Required][StringLength(50)]
+        [Required]
         public bool Estado { get; set; }
         public ICollection<Clinica> Clinicas { get; set; }
         public ICollection<Paciente> Pacientes { get; set; }

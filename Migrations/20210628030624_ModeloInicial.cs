@@ -53,7 +53,7 @@ namespace Health_Tec.Migrations
                     Apellido1 = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Apellido2 = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Especialidad = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Estado = table.Column<bool>(type: "bit", maxLength: 50, nullable: false)
+                    Estado = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

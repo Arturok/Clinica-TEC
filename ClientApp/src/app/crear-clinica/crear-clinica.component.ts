@@ -17,6 +17,7 @@ export class CrearClinicaComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   nuevaClinica(): void {
     (this.submitted = false), (this.clinica = new Clinica());
   }

@@ -26,5 +26,17 @@ namespace Health_Tec.Controllers
             var medicos = await context.Medicos.Include(c => c.Clinicas).Include(p => p.Pacientes).ToListAsync();   
             return mapper.Map<List<Medico>, List<MedicoResource>>(medicos);
         }
+        [HttpPost]
+        public async Task<IActionResult> CreateMedico([FromBody] Medico medico)
+        {
+            if (!ModelState.IsValid) // Si el modelo enviado no es válido
+                return BadRequest(ModelState);
+            
+            if (medico == null)
+                return BadRequest();
+            context.Add(medico);
+
+            return Ok(await context.SaveChangesAsync());
+        }
     }
 }

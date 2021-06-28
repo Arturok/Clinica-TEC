@@ -26,5 +26,17 @@ namespace Health_Tec.Controllers
             var pacientes = await context.Pacientes.Include(t => t.Telefonos).Include(c => c.Clinicas).Include(m => m.Medicos).Include(e => e.Estado).ToListAsync();
             return mapper.Map<List<Paciente>, List<PacienteResource>>(pacientes);
         }
+        [HttpPost]
+        public async Task<IActionResult> CreatePaciente([FromBody] Paciente paciente)
+        {
+            if (!ModelState.IsValid) // Si el modelo enviado no es válido
+                return BadRequest(ModelState);
+            
+            if (paciente == null)
+                return BadRequest();
+            context.Add(paciente);
+
+            return Ok(await context.SaveChangesAsync());
+        }
     }
 }
