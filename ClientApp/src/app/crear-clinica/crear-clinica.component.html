@@ -1,41 +1,40 @@
-<form action="action_page.php" method="post">
-    <div class="imgcontainer">
-      <h3 style="text-align: center;"><span style="color: #339966;">Nueva Clínica</span></h3>
-    </div>
-  
-    <div class="container" style="width: 50%; float:left">
+<div class="imgcontainer">
+  <h3 style="text-align: center;"><span style="color: #339966;">Nueva Clínica</span></h3>
+</div>
+<form (ngSubmit)="onSubmit()">
+    <div class="form-group container" style="width: 50%; float:left">
         <label for="id">Identificador:</label><br>
-        <input type="text" id="id" name="id"><br>
+        <input type="text" class="form-control" id="id" required [(ngModel)]="clinica.id" name="id"/>
         <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre">   
+        <input class="form-control" type="text" id="nombre" name="nombre" required [(ngModel)]="clinica.nombre">   
         <label for="provincia">Provincia:</label><br>
-        <input type="text" id="provincia" name="provincia">   
+        <input class="form-control" type="text" id="provincia" name="provincia" required [(ngModel)]="clinica.provincia">   
         <label for="canton">Cantón:</label><br>
-        <input type="text" id="canton" name="canton">  
+        <input class="form-control" type="text" id="canton" name="canton" required [(ngModel)]="clinica.canton">  
         <label for="distrito">Distrito:</label><br>
-        <input type="text" id="distrito" name="distrito">  
+        <input class="form-control" class="form-control" type="text" id="distrito" name="distrito" required [(ngModel)]="clinica.distrito">  
         <label for="otros">Otros:</label><br>
-        <input type="text" id="otros" name="otros">
+        <input class="form-control" type="text" id="otros" name="otros" required [(ngModel)]="clinica.otros">
         <label for="telefono">Teléfono:</label><br>
-        <input type="number" id="telefono" name="telefono">  
+        <input class="form-control" type="number" id="telefono" name="telefono" required [(ngModel)]="clinica.telefono">  
     </div>
-    <div class="container" style="width: 50%; float:right">
+    <div class="form-group container" style="width: 50%; float:right">
         <label for="correo">Corereo:</label><br>
-        <input type="text" id="correo" name="correo"> 
+        <input class="form-control" type="text" id="correo" name="correo" required [(ngModel)]="clinica.correo"> 
         <label for="sitioWeb">Sitio web:</label><br>
-        <input type="text" id="sitioWeb" name="sitioWeb"> 
+        <input class="form-control" type="text" id="sitioWeb" name="sitioWeb" required [(ngModel)]="clinica.sitioWeb"> 
         <label>Horario</label><br>
         <label for="diaInicio">Día inicial:</label><br>
-        <input type="text" id="diaInicio" name="diaInicio"> 
+        <input class="form-control" type="text" id="diaInicio" name="diaInicio" required [(ngModel)]="clinica.diaInicio"> 
         <label for="diaFinal">Día final:</label><br>
-        <input type="text" id="diaFinal" name="diaFinal"> 
+        <input class="form-control" type="text" id="diaFinal" name="diaFinal" required [(ngModel)]="clinica.diaFinal"> 
         <label for="horaInicio">Hora entrada:</label><br>
-        <input type="text" id="horaInicio" name="horaInicio"> 
+        <input class="form-control" type="text" id="horaInicio" name="horaInicio" required [(ngModel)]="clinica.horaInicio"> 
         <label for="horaCierre">Hora cierre:</label><br>
-        <input type="text" id="horaCierre" name="horaCierre"> 
+        <input class="form-control" type="text" id="horaCierre" name="horaCierre" required [(ngModel)]="clinica.horaCierre"> 
         
 
 
-      <button type="submit">Guardar</button>
+      <button id="submit" type="submit" class="btn btn-success">Guardar</button>
     </div>
   </form>

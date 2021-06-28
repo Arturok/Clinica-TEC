@@ -26,5 +26,17 @@ namespace Health_Tec.Controllers
             var clinicas = await context.Clinicas.Include(m => m.Medicos).Include(p => p.Pacientes).ToListAsync();
             return mapper.Map<List<Clinica>, List<ClinicaResource>>(clinicas);
         }
+        [HttpPost]
+        public async Task<IActionResult> CreateClinica([FromBody] Clinica clinica)
+        {
+            if (!ModelState.IsValid) // Si el modelo enviado no es válido
+                return BadRequest(ModelState);
+            
+            if (clinica == null)
+                return BadRequest();
+            context.Add(clinica);
+
+            return Ok(await context.SaveChangesAsync());
+        }
     }
 }

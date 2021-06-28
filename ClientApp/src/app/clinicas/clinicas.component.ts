@@ -1,5 +1,6 @@
 import { ClinicaService } from './../services/clinica.service';
 import { Component, OnInit } from '@angular/core';
+import { Clinica } from '../models/clinica';
 
 @Component({
   selector: 'app-clinicas',
@@ -17,5 +18,4 @@ export class ClinicasComponent implements OnInit {
       console.log("Clinicas: ", this.clinicas);
     });
   }
-
 }

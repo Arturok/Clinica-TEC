@@ -22,7 +22,21 @@ namespace Health_Tec.Migrations
             migrationBuilder.Sql("insert into ClinicaMedico (ClinicasId, MedicosId) values ((select Id from Clinicas where Nombre = 'Clinica2'), (select Id from Medicos where Nombre = 'Nombre2'))");
             migrationBuilder.Sql("insert into ClinicaMedico (ClinicasId, MedicosId) values ((select Id from Clinicas where Nombre = 'Clinica2'), (select Id from Medicos where Nombre = 'Nombre3'))");
 
+            migrationBuilder.Sql("insert into Pacientes values ('111111111', 'NombreP1', 'Apellido1P1', 'Apellido2P1', 'Provincia1', 'Canton1', 'Distrito1', 'Otros1', 'Correo1', GETDATE(),'TipoSangre1', (select Id From Estados where Nombre='Sano'))");
+            migrationBuilder.Sql("insert into Pacientes values ('333333333', 'NombreP2', 'Apellido1P2', 'Apellido2P2', 'Provincia2', 'Canton2', 'Distrito2', 'Otros2', 'Correo2', GETDATE(),'TipoSangre2', (select Id From Estados where Nombre='Contagiado'))");
+            migrationBuilder.Sql("insert into Pacientes values ('CO1234567', 'NombreP3', 'Apellido1P3', 'Apellido2P3', 'Provincia3', 'Canton3', 'Distrito3', 'Otros3', 'Correo3', GETDATE(),'TipoSangre3', (select Id From Estados where Nombre='Recuperado'))");
+
+            migrationBuilder.Sql("insert into MedicoPaciente values ('M1', '111111111')");
+            migrationBuilder.Sql("insert into MedicoPaciente values ('M2', 'CO1234567')");
+            migrationBuilder.Sql("insert into MedicoPaciente values ('M2', '333333333')");
+
+            migrationBuilder.Sql("insert into ClinicaPaciente values ('C1', '111111111')");
+            migrationBuilder.Sql("insert into ClinicaPaciente values ('C2', 'CO1234567')");
+            migrationBuilder.Sql("insert into ClinicaPaciente values ('C2', '333333333')");
+
             
+
+
 
         }
 

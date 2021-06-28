@@ -32,7 +32,6 @@ namespace Health_Tec.Models
         public string HoraInicio { get; set; }
         [Required][StringLength(50)]
         public string HoraCierre { get; set; }
-        [Required][StringLength(50)]
         public ICollection<Medico> Medicos { get; set; }
         public ICollection<Paciente> Pacientes { get; set; }
 
